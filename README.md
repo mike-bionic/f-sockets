@@ -1,12 +1,14 @@
-# Flask socketio usage in practice
+# Flask SocketIO usage in practice
 
 Coding flask server with socketio.
 Learning websockets by making a few projects like chat, maps, IoT applications.
 
 
-## TODO:
+## TODOs:
 
 + [x] Connect sockets with socket clients
++ [ ] Broadcast sockets
++ [ ] Private sockets
 + [ ] Make client -> server connection
 + [ ] Make client -> client connection
 + [ ] Add sqlalchemy db support
@@ -14,3 +16,10 @@ Learning websockets by making a few projects like chat, maps, IoT applications.
 + [ ] Security of websockets
 + [ ] Async websockets on Nginx/Apache server
 + [ ]	Concurrency and optimization
+
+## Apps:
+
++ [ ] Chat app
++ [ ] Maps app
++ [ ] Orders app
++ [ ] IoT app
