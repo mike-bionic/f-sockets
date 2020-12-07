@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order sockets</title>
+</head>
+<body>
+
+	<form action="" method="POST">
+	  <input type="text" class="username" placeholder="User Name"/>
+	  <input type="text" class="product" placeholder="Product name"/>
+	  <input type="submit"/>
+	</form>
+
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/socket.io.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/order.js') }}"></script>
+</body>
+</html>
