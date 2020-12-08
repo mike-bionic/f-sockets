@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sockets!!!</title>
+</head>
+<body>
+	<div class="container">
+		<h2>Example client</h2>
+		<div>
+			<span>Message box</span>
+			<hr>
+			<div class="message_box"></div>
+			<hr>
+		</div>
+
+		<form class="messageForm" action="">
+			<span>Username</span>
+			<input type="text" id="username">
+			<hr>
+			<span>Message</span>
+			<input type="text" id="message">
+			<button type="submit">Send</button>
+		</form>		
+	</div>
+
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/socket.io.js') }}"></script>
+	<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
