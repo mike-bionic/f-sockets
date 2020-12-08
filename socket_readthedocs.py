@@ -24,10 +24,17 @@ def handle_json(json):
 def handle_my_event(json):
 	print(f'Received event {str(json)}')
 
+def store_message(message_data):
+	# print(message_data)
+	username = message_data['username']
+	message = message_data['message']
+	print(f'Storing the message "{message}" of user "{username}"')
+
 
 @socketio.on('chat event')
 def handle_chat_event(json):
-	emit('chat response', json)
+	emit('chat response', json, callback=store_message(json), broadcast=True)
 
 if __name__ == '__main__':
+	app.run(host='0.0.0.0')
 	socketio.run(app)

@@ -16,9 +16,16 @@ $('form').on('submit', function(event){
 			username: username,
 			message: message
 		})
+	$('#message').val('');
 })
 
 socket.on('chat response', function(data) {
 	console.log(data);
-	$('.message_box').append(`<div><b><span class='recipient'>${data.username}:</span></b><span class='chatMessage'>${data.message}</span><div>`);
+	$('.message_box').append(`
+		<div>
+			<b>
+				<span class='recipient'>${data.username}:</span>
+			</b>
+			<span class='chatMessage'>${data.message}</span>
+		<div>`);
 })
