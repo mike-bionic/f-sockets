@@ -10,6 +10,19 @@ socketio = SocketIO(app)
 def main():
 	return render_template('main.html')
 
+
+@socketio.on('connect')
+def handle_connect():
+	print('client connected')
+	emit('chat response', {'username':'server','message': 'successfully connected'}, broadcast=True)
+
+
+@socketio.on('disconnect')
+def handle_disconnect():
+	print('client disconnected')
+	emit('chat response', {'username':'server','message': 'disconnected'}, broadcast=True)
+
+
 @socketio.on('message')
 def handle_message(message):
 	print(f'Received message {message}')
