@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit, Namespace
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -47,6 +47,31 @@ def store_message(message_data):
 @socketio.on('chat event')
 def handle_chat_event(json):
 	emit('chat response', json, callback=store_message(json), broadcast=True)
+
+
+@socketio.on_error()
+def error_handler(e):
+	print("error occured (root namespace)")
+	print(e)
+
+@socketio.on_error_default
+def default_error_handler(e):
+	print("error occured (default)")
+	print(e)
+
+
+class ChatNamespace(Namespace):
+	def on_connect(self):
+		print("connected to a class Namespace")
+
+	def on_disconnect(self):
+		print("disconnected from class Namespace")
+
+	def on_my_event(self, data):
+		emit('my_response', data)
+
+socketio.on_namespace(ChatNamespace('/chat'))
+
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0')
