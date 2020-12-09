@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit, Namespace
+from flask_login import login_user, current_user
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -71,6 +73,24 @@ class ChatNamespace(Namespace):
 		emit('my_response', data)
 
 socketio.on_namespace(ChatNamespace('/chat'))
+
+##### auth
+
+@app.route('/login')
+def login():
+	username = request.args.get('username')
+	password = request.args.get('password')
+	if (username == 'user' and password == 'secret'):
+		print('authenticated')
+		login_user(username)
+
+
+@socketio.on('connect')
+def connect_handler():
+	if current_user.is_authenticated:
+		emit('username':'server','message', {'message': '{0} has joined'.format(current_user.name)},broadcast=True)
+	else:
+		return False
 
 
 if __name__ == '__main__':

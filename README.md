@@ -14,6 +14,8 @@ Learning websockets by making a few projects like chat, maps, IoT applications.
 + [ ] Add sqlalchemy db support
 + [ ] Add Redis cache support
 + [ ] Security of websockets
++ [x] Error handling
++ [ ] Authentication
 + [ ] Async websockets on Nginx/Apache server
 + [ ]	Concurrency and optimization
 
