@@ -7,9 +7,9 @@ Learning websockets by making a few projects like chat, maps, IoT applications.
 ## TODOs:
 
 + [x] Connect sockets with socket clients
-+ [ ] Broadcast sockets
-+ [ ] Private sockets
-+ [ ] Make client -> server connection
++ [x] Broadcast sockets
++ [x] Private sockets
++ [x] Make client -> server connection
 + [ ] Make client -> client connection
 + [ ] Add sqlalchemy db support
 + [ ] Add Redis cache support
